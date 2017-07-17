@@ -57,14 +57,7 @@ def build_packet_callback(time_fmt, logger, delimiter, mac_info, ssid, rssi):
             rssi_val = -(256 - ord(packet.notdecoded[-4:-3]))
             fields.append(str(rssi_val))
 
-        try:
-            logger.info(delimiter.join(fields))
-        except:
-            pprint.pprint(fields)
-            # fields[3] = fields[3].decode('utf-8')
-            print(fields)
-            logger.info(delimiter.join(fields))
-            raise
+        logger.info(delimiter.join(fields))
 
     return packet_callback
 
